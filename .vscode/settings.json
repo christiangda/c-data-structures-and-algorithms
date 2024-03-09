@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "*.template": "yaml",
+    "linked_list.h": "c",
+    "assert.h": "c"
+  }
+}
