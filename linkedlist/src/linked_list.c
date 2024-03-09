@@ -52,6 +52,28 @@ void list_prepend(List *list, Node *node)
   list->size++;
 }
 
+void list_append(List *list, Node *node)
+{
+  if (list == NULL || node == NULL)
+  {
+    return;
+  }
+
+  node->next = NULL;
+
+  if (list->size == 0)
+  {
+    list->head = node;
+    list->tail = node;
+  }
+
+  // add the node to the tail of the list
+  list->tail->next = node;
+  list->tail = node;
+
+  list->size++;
+}
+
 size_t list_size(List *list)
 {
   return list->size;
@@ -67,4 +89,16 @@ void list_prepend_value(List *list, void *value, size_t size)
   node->size = size;
 
   list_prepend(list, node);
+}
+
+void list_append_value(List *list, void *value, size_t size)
+{
+  Node *node = malloc(sizeof(Node));
+  node->next = NULL;
+
+  node->data = malloc(size);
+  node->data = value;
+  node->size = size;
+
+  list_append(list, node);
 }

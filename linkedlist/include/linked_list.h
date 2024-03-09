@@ -24,7 +24,9 @@ typedef struct List
 List *list_new();
 void list_destroy(List *list);
 void list_prepend(List *list, Node *node);
+void list_append(List *list, Node *node);
 void list_prepend_value(List *list, void *value, size_t size);
+void list_append_value(List *list, void *value, size_t size);
 
 size_t list_size(List *list);
 
