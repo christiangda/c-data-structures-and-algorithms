@@ -8,8 +8,9 @@ void test_list_new()
 {
   List *list = list_new();
 
-  assert(list->head == NULL);
   assert(list->size == 0);
+  assert(list->head == NULL);
+  assert(list->tail == NULL);
 
   list_destroy(list);
 }
@@ -27,7 +28,6 @@ void test_prepend_to_new_list()
 {
   List *list = list_new();
   Node *node = malloc(sizeof(Node));
-  node->next = NULL;
 
   list_prepend(list, node);
 
@@ -44,10 +44,27 @@ void test_prepend_10()
   {
     Node *node = malloc(sizeof(Node));
     node->next = NULL;
+    node->size = sizeof(int);
+
+    node->data = malloc(sizeof(Node));
+    memcpy(node->data, &i, sizeof(int));
+
     list_prepend(list, node);
   }
 
   assert(list_size(list) == 10);
+
+  Node *node = list->head;
+  for (int i = 0; i < 10; i++)
+  {
+    assert(node->size == sizeof(int));
+
+    int *val = (int *)node->data;
+    // printf("node value = %d, i= %d\n", *val, (9 - i));
+    assert(*val == (9 - i));
+
+    node = node->next;
+  }
 
   list_destroy(list);
 }
@@ -60,10 +77,27 @@ void test_append_10()
   {
     Node *node = malloc(sizeof(Node));
     node->next = NULL;
+    node->size = sizeof(int);
+
+    node->data = malloc(sizeof(Node));
+    memcpy(node->data, &i, sizeof(int));
+
     list_append(list, node);
   }
 
   assert(list_size(list) == 10);
+
+  Node *node = list->head;
+  for (int i = 0; i < 10; i++)
+  {
+    assert(node->size == sizeof(int));
+
+    int *val = (int *)node->data;
+    // printf("node value = %d, i= %d\n", *val, i);
+    assert(*val == i);
+
+    node = node->next;
+  }
 
   list_destroy(list);
 }
