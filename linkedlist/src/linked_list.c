@@ -34,6 +34,12 @@ void list_destroy(List *list)
   free(list);
 }
 
+void list_node_destroy(Node *node)
+{
+  free(node->data);
+  free(node);
+}
+
 void list_prepend(List *list, Node *node)
 {
   if (list == NULL || node == NULL)
@@ -104,4 +110,30 @@ void list_append_value(List *list, void *value, size_t size)
   node->size = size;
 
   list_append(list, node);
+}
+
+Node *list_pop(List *list)
+{
+  if (list == NULL || list->head == NULL)
+  {
+    return NULL;
+  }
+
+  Node *node = list->head;
+
+  if (list->head->next != NULL)
+  {
+    list->head = list->head->next;
+    list->size--;
+  }
+  else // this is the last
+  {
+    list->head = NULL;
+    list->tail = NULL;
+    list->size = 0;
+  }
+
+  node->next = NULL;
+
+  return node;
 }

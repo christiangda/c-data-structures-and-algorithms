@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void test_list_new()
 {
@@ -139,6 +140,37 @@ void test_list_append_value()
   list_destroy(list);
 }
 
+void test_list_pop_all()
+{
+  List *list = list_new();
+
+  for (int i = 0; i < 10; i++)
+  {
+    Node *node = malloc(sizeof(Node));
+    node->data = malloc(sizeof(int));
+    memcpy(node->data, &i, sizeof(int));
+    node->next = NULL;
+    node->size = sizeof(int);
+
+    list_prepend(list, node);
+  }
+
+  assert(list_size(list) == 10);
+
+  for (int i = 0; i < 10; i++)
+  {
+    Node *pop_node = list_pop(list);
+    assert(pop_node != NULL);
+
+    // int *val = (int *)pop_node->data;
+    // printf("value: %d,  size: %zu\n", *val, pop_node->size);
+
+    list_node_destroy(pop_node);
+  }
+
+  list_destroy(list);
+}
+
 void tests_run_all(void)
 {
   test_list_new();
@@ -149,6 +181,7 @@ void tests_run_all(void)
   test_list_destroy_10();
   test_list_prepend_value();
   test_list_append_value();
+  test_list_pop_all();
 }
 
 int main(void)
