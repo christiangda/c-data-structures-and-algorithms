@@ -59,3 +59,4 @@ $(LIB_DIR):
 clean:
 	@rm -rf $(BUILD_DIR)
 	@rm -rf $(OBJ_DIR)
+	@rm -rf $(LIB_DIR)

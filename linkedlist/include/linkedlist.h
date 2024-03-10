@@ -1,5 +1,5 @@
 /**
- * @file linked_list.h
+ * @file linkedlist.h
  * @author Christian González Di Antonio <chirisitangda@gmail.com>
  * @brief Structs and Prototype Function of a Linked List implementation to store generic values
  * @version 0.1
@@ -8,8 +8,8 @@
  * @copyright Copyright (c) 2024
  *
  */
-#ifndef LINKED_LIST_H
-#define LINKED_LIST_H
+#ifndef LINKEDLIST_H
+#define LINKEDLIST_H
 
 #include <stdio.h>
 
@@ -145,4 +145,4 @@ Node *list_pop(List *list);
  */
 size_t list_size(List *list);
 
-#endif // LINKED_LIST_H
+#endif // LINKEDLIST_H

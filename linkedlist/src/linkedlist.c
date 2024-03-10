@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2024
  *
  */
-#include "../include/linked_list.h"
+#include "../include/linkedlist.h"
 #include <stdio.h>
 #include <stdlib.h>
 
