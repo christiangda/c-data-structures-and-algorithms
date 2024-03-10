@@ -42,6 +42,7 @@ void list_prepend(List *list, Node *node)
   }
 
   // store the pointer to the first element prepend to the list
+  // to keep track of the tail of the list
   if (list->size == 0)
   {
     list->tail = node;
@@ -61,6 +62,8 @@ void list_append(List *list, Node *node)
 
   node->next = NULL;
 
+  // store the pointer to the first element prepend to the list
+  // to keep track of the tail of the list
   if (list->size == 0)
   {
     list->head = node;

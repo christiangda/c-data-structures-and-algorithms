@@ -9,6 +9,8 @@ void test_list_new()
 
   assert(list->head == NULL);
   assert(list->size == 0);
+
+  list_destroy(list);
 }
 
 void test_list_size_new()
@@ -16,6 +18,8 @@ void test_list_size_new()
   List *list = list_new();
 
   assert(list_size(list) == 0);
+
+  list_destroy(list);
 }
 
 void test_prepend_to_new_list()
@@ -27,6 +31,8 @@ void test_prepend_to_new_list()
   list_prepend(list, node);
 
   assert(list_size(list) == 1);
+
+  list_destroy(list);
 }
 
 void test_prepend_10()
@@ -41,6 +47,8 @@ void test_prepend_10()
   }
 
   assert(list_size(list) == 10);
+
+  list_destroy(list);
 }
 
 void test_append_10()
@@ -55,6 +63,8 @@ void test_append_10()
   }
 
   assert(list_size(list) == 10);
+
+  list_destroy(list);
 }
 
 void test_list_destroy_10()
@@ -84,17 +94,20 @@ void test_list_prepend_value()
     list_prepend_value(list, val, sizeof(int));
   }
 
+  assert(list_size(list) == 10);
+
+  // check elemets in the list
   Node *temp_node = list->head;
   for (int i = 0; i < 10; i++)
   {
-    // int *val = (int *)temp_node->data;
+    int *val = (int *)temp_node->data;
     // printf("value = %d, size = %zu (bytes)\n", *val, temp_node->size);
+    assert(*val == i + 1);
 
     assert(sizeof(int) == temp_node->size);
     temp_node = temp_node->next;
   }
 
-  assert(list_size(list) == 10);
   list_destroy(list);
 }
 
@@ -109,17 +122,20 @@ void test_list_append_value()
     list_append_value(list, val, sizeof(int));
   }
 
+  assert(list_size(list) == 10);
+
+  // check elements in the list
   Node *temp_node = list->head;
   for (int i = 0; i < 10; i++)
   {
-    // int *val = (int *)temp_node->data;
+    int *val = (int *)temp_node->data;
     // printf("value = %d, size = %zu (bytes)\n", *val, temp_node->size);
+    assert(*val == 10 - i);
 
     assert(sizeof(int) == temp_node->size);
     temp_node = temp_node->next;
   }
 
-  assert(list_size(list) == 10);
   list_destroy(list);
 }
 
