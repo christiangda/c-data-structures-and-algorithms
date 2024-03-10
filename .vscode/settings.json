@@ -1,7 +1,11 @@
 {
+  "C_Cpp.errorSquiggles": "enabled",
+  "C_Cpp.enhancedColorization": "enabled",
   "files.associations": {
     "*.template": "yaml",
     "linked_list.h": "c",
-    "assert.h": "c"
+    "assert.h": "c",
+    "string": "c",
+    "string_view": "c"
   }
 }

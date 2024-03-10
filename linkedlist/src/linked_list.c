@@ -1,3 +1,13 @@
+/**
+ * @file linked_list.c
+ * @author Christian González Di Antonio <chirisitangda@gmail.com>
+ * @brief Implementation of Linked List
+ * @version 0.1
+ * @date 2024-03-10
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
 #include "../include/linked_list.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,8 +37,7 @@ void list_destroy(List *list)
     temp_node = list->head;
     list->head = temp_node->next;
 
-    free(temp_node->data);
-    free(temp_node);
+    list_node_destroy(temp_node);
   }
 
   free(list);
