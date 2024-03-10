@@ -2,6 +2,12 @@
 
 Linked list implementation in C.
 
+NOTES:
+
++ This is a just for fun project to implement data structures and algorithms in C.
++ This is not focused in performance, so it's not a good idea to use this in production.
++ Use a Generic Linked List implementation in C, so it's possible to use it with any data type is less performant than a specific implementation.  This is because the data type is passed as a void pointer and when `malloc` is used to allocate memory for the data type, this is not together with the node, so it's necessary to allocate memory for the data type and then assign the pointer to the node.
+
 ## Development
 
 ## Requirements

@@ -5,7 +5,9 @@ Collection of data structures and algorithms in C.
 This is a just for fun project to implement data structures and algorithms in C.
 
 The goal is to learn and understand the concepts of data structures and algorithms using C and
-the tools ecosystem around C, like make, valgrind, etc.
+the tools ecosystem around C, like make, valgrind, vscode, etc.
+
+One of the important goals is also use vscode to debug the code and understand the memory management in C.
 
 ## Implementations
 
