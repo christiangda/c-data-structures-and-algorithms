@@ -3,11 +3,25 @@
   "tasks": [
     {
       "type": "cppbuild",
-      "label": "make",
+      "label": "make-linkedlist",
       "command": "make clean && make && make test",
       "args": [],
       "options": {
         "cwd": "${workspaceFolder}/linkedlist"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": "build",
+      "detail": "Build our program using make"
+    },
+    {
+      "type": "cppbuild",
+      "label": "make-vector",
+      "command": "make clean && make && make test",
+      "args": [],
+      "options": {
+        "cwd": "${workspaceFolder}/vector"
       },
       "problemMatcher": [
         "$gcc"

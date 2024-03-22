@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "configurations": [
     {
-      "name": "C: Debug (gdb) Makefile test",
+      "name": "C: Debug (gdb) Makefile test linkedlist",
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/linkedlist/build/test_linkedlist",
@@ -12,7 +12,20 @@
       "environment": [],
       "externalConsole": false,
       "MIMode": "lldb",
-      "preLaunchTask": "make"
+      "preLaunchTask": "make-linkedlist"
+    },
+    {
+      "name": "C: Debug (gdb) Makefile test vector_linked_list",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/vector/build/test_vector_linked_list",
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}/vector",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb",
+      "preLaunchTask": "make-vector"
     }
   ]
 }
