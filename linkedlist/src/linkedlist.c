@@ -12,7 +12,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-List *list_new()
+List *
+list_new()
 {
   List *l = (List *)malloc(sizeof(List));
   l->head = NULL;

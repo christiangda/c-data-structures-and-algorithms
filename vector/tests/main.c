@@ -108,12 +108,54 @@ static void test_vector_insert_index_0()
   vector_destroy(vector);
 }
 
+static void test_vector_insert()
+{
+  Vector *vector = vector_new(sizeof(int));
+
+  int len = 1;
+  for (int i = 0; i < len; i++)
+  {
+    // will be free by vector_destroy
+    int *val = malloc(sizeof(int));
+    memcpy(val, &i, sizeof(int));
+
+    printf("filling val: %d, i:%d\n", *val, i);
+    vector_insert(vector, (size_t)i, val);
+
+    free(val);
+  }
+
+  assert(vector->size == (size_t)len);
+
+  // puts("");
+
+  //  check values
+  Item *item = vector->head;
+  for (int i = (len - 1); i > 0; i--)
+  {
+    assert(vector->item_size = sizeof(int));
+
+    int *val = (int *)item->content;
+
+    // printf("checking val: %d, i:%d\n", *val, i);
+    assert(*val == i);
+
+    if (item->next != NULL)
+    {
+      item = item->next;
+    }
+  }
+
+  vector_destroy(vector);
+}
+
 void tests_run_all(void)
 {
   test_vector_new();
   test_vector_add();
   test_vector_destroy();
   test_vector_insert_index_0();
+  test_vector_insert();
 }
 
 int main(void)
